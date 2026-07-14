@@ -36,15 +36,15 @@ import com.qualcomm.robotcore.util.Range;
 /*
  * Sample teleop opmode
  */
-
-@TeleOp(name="teleop")
+@TeleOp(name="Nathan's wOrk")
 
 public class Teleop extends LinearOpMode {
 
     //Method that gets called when you hit "init"
+    public hardware robot;
     @Override
     public void runOpMode() {
-
+        robot = new hardware(hardwareMap);
         // run until the end of the match (driver presses STOP)
         while (opModeIsActive()) {
             // Setup a variable for each drive wheel to save power level for telemetry
