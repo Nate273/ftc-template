@@ -47,8 +47,4 @@ public class hardware {
     public void closeCLaw(){
         clw.setPosition(clawOpen);
     }
-    public void righturn(){
-        right.setPower(-.65);
-        left.setPower(.65);
-    }
 }
