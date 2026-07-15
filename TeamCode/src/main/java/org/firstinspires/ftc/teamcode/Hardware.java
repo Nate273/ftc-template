@@ -4,16 +4,16 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-public class hardware {
+public class Hardware {
     // 193.168.43.1
     public DcMotor left;
     public DcMotor right;
     public DcMotor claw;
-    public Servo clw;
+    public Servo clearwater;
     public DcMotor rotater;
     public double clawClose = .3;
     public double clawOpen = .7;
-    public hardware(HardwareMap hwMap){
+    public Hardware(HardwareMap hwMap){
         // Drive motors
         left = hwMap.get(DcMotor.class, "leftMotor");
         right = hwMap.get(DcMotor.class, "RightMotor");
@@ -35,16 +35,16 @@ public class hardware {
         rotater.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         claw.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         // servos and motors
-        clw = hwMap.get(Servo.class, "clw");
+        clearwater = hwMap.get(Servo.class, "clearwater");
     }
 
     public void init(){
         openClaw();
     }
     public void openClaw(){
-        clw.setPosition(clawClose);
+        clearwater.setPosition(clawClose);
     }
     public void closeCLaw(){
-        clw.setPosition(clawOpen);
+        clearwater.setPosition(clawOpen);
     }
 }

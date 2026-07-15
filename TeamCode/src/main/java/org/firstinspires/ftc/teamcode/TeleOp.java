@@ -2,22 +2,21 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
 /*
  * Sample teleop opmode
  */
-@TeleOp(name="Nathan's wOrk")
+@com.qualcomm.robotcore.eventloop.opmode.TeleOp(name="Nathan's wOrk")
 
-public class Teleop extends LinearOpMode {
+public class TeleOp extends LinearOpMode {
 
     //Method that gets called when you hit "init" on the drivers hub
-    public hardware robot;
+    public Hardware robot;
     @Override
     // when you press init
     public void runOpMode() {
-        robot = new hardware(hardwareMap);
+        robot = new Hardware(hardwareMap);
         robot.init();
         gamepad2.setTriggerThreshold(.5f);
         // after this line is when the driver presses start

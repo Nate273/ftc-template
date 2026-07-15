@@ -5,12 +5,12 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 @Autonomous(name="Worst Best Auto")
 
-public class auto extends LinearOpMode {
-    public hardware robot;
+public class Auto extends LinearOpMode {
+    public Hardware robot;
     // when you press init
     @Override
     public void runOpMode() throws InterruptedException {
-        robot = new hardware(hardwareMap);
+        robot = new Hardware(hardwareMap);
         // intiailizes the motors and servos
         robot.init();
         // when you press play
