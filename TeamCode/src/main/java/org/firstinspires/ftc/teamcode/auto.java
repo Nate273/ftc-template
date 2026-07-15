@@ -15,5 +15,29 @@ public class auto extends LinearOpMode {
         robot.init();
         // when you press play
         waitForStart();
+
+
+        Foward(.65);
+
+
+        robot.closeCLaw();
+
+        turn(-.65);
+
+    }
+    public void turn(double power){
+        robot.right.setPower(power);
+        robot.left.setPower(-power);
+        sleep(500);
+        robot.left.setPower(0);
+        robot.right.setPower(0);
+
+    }
+    public void Foward(double power){
+        robot.right.setPower(power);
+        robot.left.setPower(power);
+        sleep(1000);
+        robot.left.setPower(0);
+        robot.right.setPower(0);
     }
 }
