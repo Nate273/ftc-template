@@ -53,10 +53,10 @@ public class TeleOp extends LinearOpMode {
                 robot.claw.setPower(0.5);
             }
             if(gamepad1.right_trigger_pressed){
-                robot.rotater.setPower(0.2);
+                robot.rotater.setPower(0.158);
             }
             if (gamepad1.right_bumper){
-                robot.rotater.setPower(-0.2);
+                robot.rotater.setPower(-0.158);
             }
         }
     }
