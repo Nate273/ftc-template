@@ -7,8 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @Autonomous(name="Worst Best Auto")
 
 public class Auto extends LinearOpMode {
-    public double ticksperInch = 0;
-    public double ticksperDegree = 0;
+    public double ticksperInch = 537.7/3.77953;
+    public double ticksperDegree = 537.7*2/360;
     public Hardware robot;
     // when you press init
     @Override
@@ -19,14 +19,14 @@ public class Auto extends LinearOpMode {
         waitForStart();
 
 
-        Foward(.65);
+        /*Foward(.65);
 
-        turn(-.65);
+        turn(-.65);*/
 
-        forwardencoderversion(1, 20);
-        turnencoderversion(1,20);
+        forwardencoderversion(1, 50);
+        turnencoderversion(1,2);
     }
-    public void turn(double power){
+    /*public void turn(double power){
         robot.right.setPower(power);
         robot.left.setPower(-power);
         sleep(50);
@@ -40,7 +40,7 @@ public class Auto extends LinearOpMode {
         sleep(2500);
         robot.left.setPower(0);
         robot.right.setPower(0);
-    }
+    }*/
     public void forwardencoderversion(double power, double inches){
         robot.left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);

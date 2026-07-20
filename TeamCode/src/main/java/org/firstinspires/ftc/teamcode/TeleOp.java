@@ -20,8 +20,8 @@ public class TeleOp extends LinearOpMode {
     public void runOpMode() {
         robot = new Hardware(hardwareMap);
         gamepad2.setTriggerThreshold(.5f);
-        robot.clearwater.setPosition(-0.5);
-        robot.rotaterServo.setPosition(.85);
+        robot.clearwater.setPosition(0.5);
+        robot.rotaterServo.setPosition(0.944);
         // after this line is when the driver presses start
         waitForStart();
         // run until the end of the match (driver presses STOP)
@@ -35,7 +35,9 @@ public class TeleOp extends LinearOpMode {
 
             // POV Mode uses left stick to go forward, and right stick to turn.
             // - This uses basic math to combine motions and is easier to drive straight.
-            double drive = -gamepad1.left_stick_x;
+            //double drive = -gamepad1.left_stick_x;
+            //double turn = gamepad1.left_stick_y;
+            double drive = -gamepad1.right_stick_x;
             double turn = gamepad1.right_stick_y;
             leftPower = Range.clip(drive + turn, -1.0, 1.0);
             rightPower = Range.clip(drive - turn, -1.0, 1.0);
@@ -43,35 +45,26 @@ public class TeleOp extends LinearOpMode {
             robot.left.setPower(leftPower);
             robot.right.setPower(rightPower);
 
-            if(gamepad2.left_bumper){
+            if(gamepad1.left_bumper){
                 robot.claw.setVelocity(TARGET_VELOCITY);
             }else{
                 robot.claw.setPower(0);
             }
-            if (gamepad2.right_bumper){
+            if (gamepad1.right_bumper){
                 robot.claw.setVelocity(-TARGET_VELOCITY);
             }else{
                 robot.claw.setPower(0);
             }
-            if (gamepad2.left_trigger_pressed){
-                robot.rotaterServo.setPosition(1);
+            if (gamepad2.right_bumper){
+                robot.rotaterServo.setPosition(0.673);
             }else{
-                robot.rotaterServo.setPosition(1);
+                robot.rotaterServo.setPosition(0.944);
             }
             if (gamepad2.right_trigger_pressed){
-                robot.rotaterServo.setPosition(-1);
-            }else{
-                robot.rotaterServo.setPosition(0);
+                robot.clearwater.setPosition(1);
             }
-            if (gamepad2.right_bumper){
-                robot.rotaterServo.setPosition(1);
-            }else{
-                robot.rotaterServo.setPosition(1);
-            }
-            if (gamepad2.left_bumper){
-                robot.rotaterServo.setPosition(-1);
-            }else{
-                robot.rotaterServo.setPosition(0);
+            if (gamepad2.left_trigger_pressed){
+                robot.clearwater.setPosition(0.5);
             }
         }
     }

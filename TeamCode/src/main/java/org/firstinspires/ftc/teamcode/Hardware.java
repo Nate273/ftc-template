@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 public class Hardware {
-    // 192.168.43.1
+    //  192.168.43.1
     public DcMotor left;
     public DcMotor right;
     public DcMotorEx claw;
