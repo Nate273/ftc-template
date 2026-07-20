@@ -63,12 +63,12 @@ public class TeleOp extends LinearOpMode {
             }else{
                 robot.rotaterServo.setPosition(0);
             }
-            if (gamepad2.left_trigger_pressed){
+            if (gamepad2.right_bumper){
                 robot.rotaterServo.setPosition(1);
             }else{
                 robot.rotaterServo.setPosition(1);
             }
-            if (gamepad2.right_trigger_pressed){
+            if (gamepad2.left_bumper){
                 robot.rotaterServo.setPosition(-1);
             }else{
                 robot.rotaterServo.setPosition(0);
