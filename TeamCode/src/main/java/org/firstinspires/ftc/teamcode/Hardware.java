@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -8,12 +9,11 @@ public class Hardware {
     // 192.168.43.1
     public DcMotor left;
     public DcMotor right;
-    public DcMotor claw;
+    public DcMotorEx claw;
     public Servo clearwater;
     public DcMotor rotater;
     public Servo rotaterServo;
     public Servo clawServo;
-    public Servo clearwaterFlorida;
     public double clawClose = .3;
     public double clawOpen = .7;
     public Hardware(HardwareMap hwMap){
@@ -43,15 +43,5 @@ public class Hardware {
         clawServo = hwMap.get(Servo.class, "clamper");
     }
 
-    public void init(){
-        openClaw();
     }
-    public void openClaw(){
-        clearwater.setPosition(clawClose);
-        clawServo.setPosition(-clawClose);
-    }
-    public void closeCLaw(){
-        clearwater.setPosition(clawOpen);
 
-    }
-}
