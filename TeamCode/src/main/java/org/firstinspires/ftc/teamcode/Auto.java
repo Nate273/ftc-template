@@ -23,6 +23,7 @@ public class Auto extends LinearOpMode {
 
         turn(-.65);
 
+        forwardencoderversion(1, 20);
         turnencoderversion(1,20);
     }
     public void turn(double power){

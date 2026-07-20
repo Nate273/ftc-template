@@ -22,7 +22,6 @@ public class TeleOp extends LinearOpMode {
         gamepad2.setTriggerThreshold(.5f);
         robot.clearwater.setPosition(-0.5);
         robot.rotaterServo.setPosition(.85);
-        robot.clawServo.setPosition(0);
         // after this line is when the driver presses start
         waitForStart();
         // run until the end of the match (driver presses STOP)
@@ -45,14 +44,34 @@ public class TeleOp extends LinearOpMode {
             robot.right.setPower(rightPower);
 
             if(gamepad2.left_bumper){
-                robot.claw.setVelocity(-TARGET_VELOCITY);
+                robot.claw.setVelocity(TARGET_VELOCITY);
             }else{
                 robot.claw.setPower(0);
             }
             if (gamepad2.right_bumper){
-                robot.claw.setPower(-1);
+                robot.claw.setVelocity(-TARGET_VELOCITY);
             }else{
                 robot.claw.setPower(0);
+            }
+            if (gamepad2.left_trigger_pressed){
+                robot.rotaterServo.setPosition(1);
+            }else{
+                robot.rotaterServo.setPosition(1);
+            }
+            if (gamepad2.right_trigger_pressed){
+                robot.rotaterServo.setPosition(-1);
+            }else{
+                robot.rotaterServo.setPosition(0);
+            }
+            if (gamepad2.left_trigger_pressed){
+                robot.rotaterServo.setPosition(1);
+            }else{
+                robot.rotaterServo.setPosition(1);
+            }
+            if (gamepad2.right_trigger_pressed){
+                robot.rotaterServo.setPosition(-1);
+            }else{
+                robot.rotaterServo.setPosition(0);
             }
         }
     }

@@ -13,7 +13,6 @@ public class Hardware {
     public Servo clearwater;
     public DcMotor rotater;
     public Servo rotaterServo;
-    public Servo clawServo;
     public double clawClose = .3;
     public double clawOpen = .7;
     public Hardware(HardwareMap hwMap){
@@ -21,7 +20,7 @@ public class Hardware {
         left = hwMap.get(DcMotor.class, "leftMotor");
         right = hwMap.get(DcMotor.class, "RightMotor");
         rotater = hwMap.get(DcMotor.class, "rotater");
-        claw = hwMap.get(DcMotor.class, "Claw");
+        claw = hwMap.get(DcMotorEx.class, "Claw");
 
         left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -40,7 +39,6 @@ public class Hardware {
         // servo
         clearwater = hwMap.get(Servo.class, "clearwater");
         rotaterServo = hwMap.get(Servo.class, "waterclear");
-        clawServo = hwMap.get(Servo.class, "clamper");
     }
 
     }
