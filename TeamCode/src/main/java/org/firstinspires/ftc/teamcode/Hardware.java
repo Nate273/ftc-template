@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
@@ -31,6 +32,8 @@ public class Hardware {
         right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         rotater.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         claw.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+
+        left.setDirection(DcMotorSimple.Direction.REVERSE);
 
         left.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         right.setMode(DcMotor.RunMode.RUN_USING_ENCODER);

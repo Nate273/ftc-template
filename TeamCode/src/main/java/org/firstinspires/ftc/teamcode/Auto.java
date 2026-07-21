@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@Autonomous(name="Worst Best Auto")
+@Autonomous(name="Ian sucks sometimes Auto")
 
 public class Auto extends LinearOpMode {
     public double ticksperInch = 537.7/3.77953;
@@ -23,8 +23,15 @@ public class Auto extends LinearOpMode {
 
         turn(-.65);*/
 
-        forwardencoderversion(1, 50);
-        turnencoderversion(1,2);
+        forwardencoderversion(0.25, 50);
+        sleep(10000);
+//        turnencoderversion(1,2);
+
+//        while (opModeIsActive()) {
+//
+//        }
+
+//        sleep(6000);
     }
     /*public void turn(double power){
         robot.right.setPower(power);
@@ -55,6 +62,14 @@ public class Auto extends LinearOpMode {
 
         robot.left.setPower(power);
         robot.right.setPower(power);
+
+        telemetry.addData("Left target", robot.left.getTargetPosition());
+        telemetry.addData("Claw Target", robot.claw.getTargetPosition());
+        telemetry.addData("Right target", robot.right.getTargetPosition());
+        telemetry.addData("Left current", robot.left.getCurrentPosition());
+        telemetry.addData("Right current", robot.right.getCurrentPosition());
+        telemetry.addData("Claw current", robot.claw.getCurrentPosition());
+        telemetry.update();
     }
     public void turnencoderversion(double power, double inches){
         robot.left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
