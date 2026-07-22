@@ -24,7 +24,9 @@ public class Auto extends LinearOpMode {
         turn(-.65);*/
 
         forwardencoderversion(0.25, 50);
-        sleep(10000);
+        sleep(6000);
+        turnencoderversion(0.25, 2);
+        sleep(250);
 //        turnencoderversion(1,2);
 
 //        while (opModeIsActive()) {
@@ -64,11 +66,9 @@ public class Auto extends LinearOpMode {
         robot.right.setPower(power);
 
         telemetry.addData("Left target", robot.left.getTargetPosition());
-        telemetry.addData("Claw Target", robot.claw.getTargetPosition());
         telemetry.addData("Right target", robot.right.getTargetPosition());
         telemetry.addData("Left current", robot.left.getCurrentPosition());
         telemetry.addData("Right current", robot.right.getCurrentPosition());
-        telemetry.addData("Claw current", robot.claw.getCurrentPosition());
         telemetry.update();
     }
     public void turnencoderversion(double power, double inches){
