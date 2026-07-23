@@ -14,14 +14,12 @@ public class TeleOp extends LinearOpMode {
 
     //Method that gets called when you hit "init" on the drivers hub
     public Hardware robot;
-    private static final double TARGET_VELOCITY = 1000;
+    double TARGET_VELOCITY = 1000;
     @Override
     // when you press init
     public void runOpMode() {
         robot = new Hardware(hardwareMap);
         gamepad2.setTriggerThreshold(.5f);
-        robot.clearwater.setPosition(0.7);
-        robot.rotaterServo.setPosition(0.944);
         // after this line is when the driver presses start
         waitForStart();
         // run until the end of the match (driver presses STOP)
@@ -42,37 +40,26 @@ public class TeleOp extends LinearOpMode {
             leftPower = Range.clip(drive + turn, -1.0, 1.0);
             rightPower = Range.clip(drive - turn, -1.0, 1.0);
 
-            robot.left.setPower(leftPower);
-            robot.right.setPower(rightPower);
+            robot.left.setPower(gamepad1.right_bumper ? leftPower * 0.5 : leftPower);
+            robot.right.setPower(gamepad1.right_bumper ? rightPower * 0.5 : rightPower);
 
             if(gamepad2.right_stick_y > 0.35){
-                robot.claw.setVelocity(TARGET_VELOCITY);
+                robot.claw.setVelocity(gamepad2.right_bumper ? TARGET_VELOCITY * 0.2 : TARGET_VELOCITY);
             } else if (gamepad2.right_stick_y < -0.35){
-                robot.claw.setVelocity(-TARGET_VELOCITY);
+                robot.claw.setVelocity(gamepad2.right_bumper ? -TARGET_VELOCITY * 0.2 : TARGET_VELOCITY);
             }else{
                 robot.claw.setPower(0);
             }
 //            double armControl = gamepad2.right_stick_y;
 //            double armPower = Range.clip(armControl, -1.0, 1.0);
 //            robot.claw.setVelocity(armPower);
-            if (gamepad2.right_bumper){
-                robot.rotaterServo.setPosition(0.673);
-            }else{
-                robot.rotaterServo.setPosition(0.944);
-            }
-            if (gamepad2.right_trigger_pressed){
-                robot.clearwater.setPosition(1);
-            }
-            if (gamepad2.left_trigger_pressed){
-                robot.clearwater.setPosition(0.7);
-            }
-            telemetry.addData("Left target", robot.left.getTargetPosition());
-            telemetry.addData("Claw Target", robot.claw.getTargetPosition());
-            telemetry.addData("Right target", robot.right.getTargetPosition());
-            telemetry.addData("Left current", robot.left.getCurrentPosition());
-            telemetry.addData("Right current", robot.right.getCurrentPosition());
-            telemetry.addData("Claw current", robot.claw.getCurrentPosition());
-            telemetry.update();
+//            telemetry.addData("Left target", robot.left.getTargetPosition());
+//            telemetry.addData("Claw Target", robot.claw.getTargetPosition());
+//            telemetry.addData("Right target", robot.right.getTargetPosition());
+//            telemetry.addData("Left current", robot.left.getCurrentPosition());
+//            telemetry.addData("Right current", robot.right.getCurrentPosition());
+//            telemetry.addData("Claw current", robot.claw.getCurrentPosition());
+//            telemetry.update();
         }
     }
 

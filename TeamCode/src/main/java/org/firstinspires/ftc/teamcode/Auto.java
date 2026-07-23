@@ -4,11 +4,11 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@Autonomous(name="Ian sucks sometimes Auto")
+@Autonomous(name="Auto that will score lots of points this year")
 
 public class Auto extends LinearOpMode {
-    public double ticksperInch = 537.7/3.77953;
-    public double ticksperDegree = 537.7*2/360;
+    public double ticksperInch = 0;
+    public double ticksperDegree = 0;
     public Hardware robot;
     // when you press init
     @Override
@@ -25,10 +25,8 @@ public class Auto extends LinearOpMode {
 
         forwardencoderversion(0.2, 59);
         sleep(6500);
-        turnencoderversion(0.25, 6);
-        sleep(200);
         forwardencoderversion(0.3, -20);
-        sleep(200);
+        sleep(250);
 //        turnencoderversion(1,2);
 
 //        while (opModeIsActive()) {
@@ -67,11 +65,11 @@ public class Auto extends LinearOpMode {
         robot.left.setPower(power);
         robot.right.setPower(power);
 
-        telemetry.addData("Left target", robot.left.getTargetPosition());
-        telemetry.addData("Right target", robot.right.getTargetPosition());
-        telemetry.addData("Left current", robot.left.getCurrentPosition());
-        telemetry.addData("Right current", robot.right.getCurrentPosition());
-        telemetry.update();
+//        telemetry.addData("Left target", robot.left.getTargetPosition());
+//        telemetry.addData("Right target", robot.right.getTargetPosition());
+//        telemetry.addData("Left current", robot.left.getCurrentPosition());
+//        telemetry.addData("Right current", robot.right.getCurrentPosition());
+//        telemetry.update();
     }
     public void turnencoderversion(double power, double inches){
         robot.left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
