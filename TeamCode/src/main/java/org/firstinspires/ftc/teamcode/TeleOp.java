@@ -14,13 +14,13 @@ public class TeleOp extends LinearOpMode {
 
     //Method that gets called when you hit "init" on the drivers hub
     public Hardware robot;
-    private static final double TARGET_VELOCITY = 2000;
+    private static final double TARGET_VELOCITY = 1000;
     @Override
     // when you press init
     public void runOpMode() {
         robot = new Hardware(hardwareMap);
         gamepad2.setTriggerThreshold(.5f);
-        robot.clearwater.setPosition(0.75);
+        robot.clearwater.setPosition(0.7);
         robot.rotaterServo.setPosition(0.944);
         // after this line is when the driver presses start
         waitForStart();
@@ -64,7 +64,7 @@ public class TeleOp extends LinearOpMode {
                 robot.clearwater.setPosition(1);
             }
             if (gamepad2.left_trigger_pressed){
-                robot.clearwater.setPosition(0.75);
+                robot.clearwater.setPosition(0.7);
             }
             telemetry.addData("Left target", robot.left.getTargetPosition());
             telemetry.addData("Claw Target", robot.claw.getTargetPosition());

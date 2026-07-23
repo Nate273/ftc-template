@@ -23,10 +23,12 @@ public class Auto extends LinearOpMode {
 
         turn(-.65);*/
 
-        forwardencoderversion(0.25, 50);
-        sleep(6000);
-        turnencoderversion(0.25, 2);
-        sleep(250);
+        forwardencoderversion(0.2, 59);
+        sleep(6500);
+        turnencoderversion(0.25, 6);
+        sleep(200);
+        forwardencoderversion(0.3, -20);
+        sleep(200);
 //        turnencoderversion(1,2);
 
 //        while (opModeIsActive()) {
