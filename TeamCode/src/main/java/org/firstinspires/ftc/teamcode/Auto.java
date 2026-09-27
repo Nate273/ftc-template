@@ -7,49 +7,21 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @Autonomous(name="Auto that will score lots of points this year")
 
 public class Auto extends LinearOpMode {
-    public double ticksperInch = 0;
-    public double ticksperDegree = 0;
+    public double ticksperInch = encodercpr*gearratio/wheelcircumference;
+    public double ticksperDegree = encodercpr*gearratio/360;
     public Hardware robot;
     // when you press init
     @Override
     public void runOpMode() throws InterruptedException {
         robot = new Hardware(hardwareMap);
-        // intiailizes the motors and servos
-        // when you press play
+
         waitForStart();
 
 
-        /*Foward(.65);
-
-        turn(-.65);*/
-
         forwardencoderversion(0.2, 59);
         sleep(6500);
-        forwardencoderversion(0.3, -20);
-        sleep(250);
-//        turnencoderversion(1,2);
-
-//        while (opModeIsActive()) {
-//
-//        }
-
-//        sleep(6000);
     }
-    /*public void turn(double power){
-        robot.right.setPower(power);
-        robot.left.setPower(-power);
-        sleep(50);
-        robot.left.setPower(0);
-        robot.right.setPower(0);
 
-    }
-    public void Foward(double power){
-        robot.right.setPower(power);
-        robot.left.setPower(power);
-        sleep(2500);
-        robot.left.setPower(0);
-        robot.right.setPower(0);
-    }*/
     public void forwardencoderversion(double power, double inches){
         robot.left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         robot.right.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
@@ -64,12 +36,6 @@ public class Auto extends LinearOpMode {
 
         robot.left.setPower(power);
         robot.right.setPower(power);
-
-//        telemetry.addData("Left target", robot.left.getTargetPosition());
-//        telemetry.addData("Right target", robot.right.getTargetPosition());
-//        telemetry.addData("Left current", robot.left.getCurrentPosition());
-//        telemetry.addData("Right current", robot.right.getCurrentPosition());
-//        telemetry.update();
     }
     public void turnencoderversion(double power, double inches){
         robot.left.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
